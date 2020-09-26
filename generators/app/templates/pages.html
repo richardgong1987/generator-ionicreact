@@ -1,0 +1,26 @@
+<%
+
+function toHump(str) {
+  str = str.replace(/[_-](\w)/g, function (all, letter) {
+    return letter.toUpperCase();
+  });
+  return str.slice(0, 1).toUpperCase() + str.slice(1)
+}
+
+ %>
+import {IonContent, IonPage, withIonLifeCycle} from "@ionic/react";
+import CommonHeader from "../../../../components/common-header/common-header";
+type Props = {}
+class <%=toHump(title) %>Page extends React.Component<Props, any> {
+  render() {
+    return (
+      <IonPage>
+        <CommonHeader title="推广链接" defaultUrl="/"/>
+        <IonContent>
+        </IonContent>
+      </IonPage>
+    );
+  }
+}
+
+export default withIonLifeCycle(<%=toHump(title) %>Page);
