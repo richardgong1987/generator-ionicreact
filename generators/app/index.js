@@ -1,22 +1,20 @@
-'use strict';
-const Generator = require('yeoman-generator');
+"use strict";
+const Generator = require("yeoman-generator");
+const Utils = require("../utils/Utils");
 module.exports = class extends Generator {
-  constructor(args, opts) {
-    super(args, opts);
-    this.myargs = args;
-  }
-
   writing() {
-    // var [pathssss] = this.myargs;
-    var pathssss = 'hahaha'
-    console.log("pathssss:*****************pathssss:*****************pathssss:*****************", pathssss)
-    this.fs.copy(
-      this.templatePath('pages.html'),
-      this.destinationPath(`app/pages/${pathssss}.tsx`)
+    let [pagename] = this._args;
+    let toPageName = Utils.toPageName(pagename);
+    this.fs.copyTpl(
+      this.templatePath("pages.ejs"),
+      this.destinationPath(`app/pages/${pagename}.tsx`),
+      {
+        title: toPageName
+      }
     );
   }
 
   install() {
-    this.installDependencies({bower: false, npm: false, yarn: false});
+    this.installDependencies({ bower: false });
   }
 };

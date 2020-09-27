@@ -1,17 +1,8 @@
-<%
 
-function toHump(str) {
-  str = str.replace(/[_-](\w)/g, function (all, letter) {
-    return letter.toUpperCase();
-  });
-  return str.slice(0, 1).toUpperCase() + str.slice(1)
-}
-
- %>
 import {IonContent, IonPage, withIonLifeCycle} from "@ionic/react";
 import CommonHeader from "../../../../components/common-header/common-header";
 type Props = {}
-class <%=toHump(title) %>Page extends React.Component<Props, any> {
+class <%=title %>Page extends React.Component<Props, any> {
   render() {
     return (
       <IonPage>
@@ -23,4 +14,4 @@ class <%=toHump(title) %>Page extends React.Component<Props, any> {
   }
 }
 
-export default withIonLifeCycle(<%=toHump(title) %>Page);
+export default withIonLifeCycle(<%=title %>Page);
