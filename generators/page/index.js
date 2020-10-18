@@ -33,12 +33,12 @@ module.exports = class extends Generator {
     };
     this.fs.copyTpl(
       this.templatePath("pages.ejs"),
-      this.destinationPath(`${gPath}/${pageName}.tsx`),
+      this.destinationPath(`${gPath}/${filename}/${filename}.tsx`),
       tplData
     );
     this.fs.copyTpl(
       this.templatePath("pagescss.ejs"),
-      this.destinationPath(`${gPath}/_${pageName}.scss`),
+      this.destinationPath(`${gPath}/${filename}/_${filename}.scss`),
       tplData
     );
   }
